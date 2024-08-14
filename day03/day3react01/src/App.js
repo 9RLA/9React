@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Photo from "./Photo";
 
 const App= () => {
     const [PhotoArr, setPhotoArr] = useState([
@@ -10,8 +11,10 @@ const App= () => {
         {no:6, img:"images/img_vernazza.jpg", title:"Vernazza", content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
     ]);
 
-    return(<div className="w3-content">
-        
-    </div>)
+    return(<div className="w3-content">{
+        PhotoArr.map(function(item, idx){
+            return <Photo key={item.no} item={item}/>
+        })   
+    }</div>);
 }
 export default App;
